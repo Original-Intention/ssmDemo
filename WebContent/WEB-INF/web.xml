@@ -9,4 +9,46 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <!--configure the setting of springmvcDispatcherServlet and configure the mapping-->
+  <servlet>
+      <servlet-name>springmvc</servlet-name>
+      <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+      <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:springmvc-servlet.xml</param-value>
+        </init-param>
+        <!-- <load-on-startup>1</load-on-startup> -->
+  </servlet>
+
+  <servlet-mapping>
+      <servlet-name>springmvc</servlet-name>
+      <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AServlet</servlet-name>
+  	<servlet-class>cn.test.filter.AServlet</servlet-class>
+  </servlet>
+  
+  <filter>
+  	<filter-name>AFilter</filter-name>
+  	<filter-class>cn.test.filter.AFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>AFilter</filter-name>
+  	<url-pattern>/hello</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+  	<filter-name>BFilter</filter-name>
+  	<filter-class>cn.test.filter.BFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>BFilter</filter-name>
+  	<url-pattern>/hello</url-pattern>
+  	<dispatcher>FORWARD</dispatcher>
+  </filter-mapping>
+  
 </web-app>
