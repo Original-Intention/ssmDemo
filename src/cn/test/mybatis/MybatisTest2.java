@@ -16,7 +16,7 @@ public class MybatisTest2 {
     @Test
     public void test() throws IOException { 
     	//Mapper接口开发方法只需要程序员编写Mapper接口（相当于Dao接口），由Mybatis框架根据接口定义创建接口的动态代理对象。
-        String resource="cn/test/mybatis/sqlMapConfig.xml"; 
+        String resource="cn/test/mybatis/mybatis-config.xml"; 
         //加配置文件
         InputStream in=Resources.getResourceAsStream(resource);
         SqlSessionFactoryBuilder builder= new SqlSessionFactoryBuilder();

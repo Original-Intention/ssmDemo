@@ -8,5 +8,6 @@
 </head>
 <body>
 	<h4>Hello World!</h4>
+	<h2>${message}</h2>
 </body>
 </html>

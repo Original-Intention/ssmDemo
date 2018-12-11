@@ -8,19 +8,19 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">                    
 
     <!-- scan the package and the sub package -->
-    <context:component-scan base-package="cn.test.springmvc"/>
-
-    <!-- don't handle the static resource -->
-    <mvc:default-servlet-handler />
-
-    <!-- if you use annotation you must configure following setting -->
+    <context:component-scan base-package="cn.test"/>
+   
+    <!-- 开启注解 -->
     <mvc:annotation-driven />
+    
+    <!-- if you use annotation you must configure following setting -->
+    <mvc:default-servlet-handler />
     
     <!-- configure the InternalResourceViewResolver -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
             id="internalResourceViewResolver">
         <!-- 前缀 -->
-        <property name="prefix" value="/WEB-INF/" />
+        <property name="prefix" value="/WEB-INF" />
         <!-- 后缀 -->
         <property name="suffix" value=".jsp" />
     </bean>

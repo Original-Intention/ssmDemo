@@ -16,7 +16,7 @@ public class MybatisTest {
     @Test
     public void test() throws IOException { 
 
-        String resource="cn/test/mybatis/sqlMapConfig.xml"; 
+        String resource="config/mybatis-config.xml"; 
         //加配置文件
         InputStream in=Resources.getResourceAsStream(resource);
         //创建SqlSessionFactoryBuilder对象用来创建工厂
