@@ -26,6 +26,6 @@ public class MybatisTest2 {
         UserMapper userMapper=sqlSession.getMapper(UserMapper.class);
         User user=userMapper.findUserById(10);
         System.out.println(user);
-               
+        sqlSession.close();     
     }
 }

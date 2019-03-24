@@ -21,5 +21,6 @@ public class UserServiceImpl implements UserService {
         // TODO Auto-generated method stub
         List<User> findAllUser = userMapper.findUserByUsername("");
         return findAllUser;
+        
     }
 }

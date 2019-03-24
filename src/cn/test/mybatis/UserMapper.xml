@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <!-- 模糊查询 -->
     <select id="findUserByUsername" parameterType="String" resultType="User">
         <!-- ${}里面只能是value -->
-        select * from user where username like '%${value}%'
+        select username,sex,date_format(birthday,'%Y-%m-%d') as birthday,address from user where username like '%${value}%'
     </select> 
 
     <!-- 添加操作 -->
