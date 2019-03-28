@@ -38,6 +38,22 @@
 		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
 	</listener>
 
+	<servlet>  
+        <servlet-name>Log4JTestServlet</servlet-name>  
+        <servlet-class>cn.test.log4j.Log4JTestServlet</servlet-class>  
+    </servlet>  
+
+    <context-param>  
+        <param-name>log4jConfigLocation</param-name>  
+        <param-value>/WEB-INF/classes/log4j.properties</param-value>  
+    </context-param>   
+
+    <servlet-mapping>  
+        <servlet-name>Log4JTestServlet</servlet-name>  
+        <url-pattern>/test</url-pattern>  
+    </servlet-mapping>  
+    
+    
 	<!-- 解决工程编码过滤器 -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
@@ -86,5 +102,8 @@
 		<url-pattern>/hello</url-pattern>
 		<dispatcher>FORWARD</dispatcher>
 	</filter-mapping>
-
+	
+    <listener>  
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>  
+    </listener>
 </web-app>

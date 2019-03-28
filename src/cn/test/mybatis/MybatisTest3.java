@@ -26,7 +26,9 @@ public class MybatisTest3 {
         //开发中使用这种方式来进行开发，简便快捷，代码复用性高，免去很多重复繁琐代码。
         try {
         	UserMapper userMapper=sqlSession.getMapper(UserMapper.class);
+        	//测试批量插入
         	List<User> users = new ArrayList<User>();
+        	/*       	
         	for(int i=0;i<5;i++) {
         		User user=new User();
         		user.setUsername("测试"+i);
@@ -36,8 +38,14 @@ public class MybatisTest3 {
         		users.add(user);
         		//userMapper.insertUser(user);        		
         	}
-        	userMapper.insertUsers(users);
-        	sqlSession.commit();
+        	userMapper.insertUsers(users);  
+        	sqlSession.commit();      	
+        	*/
+        	//测试字符串替换
+        	users = userMapper.findUserByParams("username", "测试0");
+        	for(User us : users) {
+        		System.out.println(us);
+        	}
         }finally {
         	sqlSession.close();
         }

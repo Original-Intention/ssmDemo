@@ -2,6 +2,9 @@ package cn.test.mybatis;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+
 public interface UserMapper {
 	/**
 	 * @author zwh
@@ -35,4 +38,13 @@ public interface UserMapper {
 	 * @param id Ö÷¼ü
 	 */
 	public void deleteUser(Integer id);
+	
+	/**
+	 * @author zwh
+	 * @date 2019-3-26 16:22:03
+	 * @param id Ö÷¼ü
+	 * @description ×Ö·û´®Ìæ»»
+	 */
+	@Select("select * from user where ${column} = #{value}")
+	public List<User> findUserByParams(@Param("column") String column, @Param("value") String value);
 }
