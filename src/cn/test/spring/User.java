@@ -1,19 +1,24 @@
-package cn.test.mybatis;
+package cn.test.spring;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class User implements Serializable {
-    /**
-     * 
-     */
-    private static final long serialVersionUID = 1L;
+public class User {
+
     private Integer id;
     private String username;// 用户姓名
     private String sex;// 性别
     private Date birthday;// 生日
     private String address;// 地址
-    
+
+
+    public User(String username, String sex, String address, Date birthday) {
+		this.username = username;
+		this.sex = sex;
+		this.address = address;
+		this.birthday = birthday;
+	}
+    public User() {
+	}
 	public Integer getId() {
         return id;
     }
