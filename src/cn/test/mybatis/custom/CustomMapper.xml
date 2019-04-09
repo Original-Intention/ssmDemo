@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+
+<!-- namespace：命名空间，和Mapper接口的位置一样，这样框架会自动帮我们找到接口 --> 
+<mapper namespace="cn.test.mybatis.custom.CustomMapper">
+    <resultMap type="" id="userCustom">
+    <id property="id" column="id" />
+    <result/>
+    </resultMap>
+    <select id="findUserCustomVOById" parameterType="int" resultMap="userCustom">
+        select * from user a,custom b where a.custom_id=b.custom_id and a.id=#{id}
+    </select>
+
+    <!-- 模糊查询 -->
+    <select id="findCountByUserCustomVO" parameterType="UserCustomVO" resultType="Integer">
+        <!-- ${}里面只能是value -->
+        select username,sex,date_format(birthday,'%Y-%m-%d') as birthday,address from user where username like '%${value}%'
+    </select> 
+
+</mapper>

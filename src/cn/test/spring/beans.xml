@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
-                        http://www.springframework.org/schema/beans/spring-beans.xsd">
+        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
+  	
+  	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/> 
+  	
   	<!-- 配置数据源 -->
     <bean id="dataSource"  class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
@@ -16,10 +23,23 @@
     </bean>
     
     <bean id="springHelloWorld" class="cn.test.spring.SpringHelloWorld"></bean>
+    
     <bean id="user" class="cn.test.spring.User"></bean>
+    
     <bean id="strutsHelloWorld" class="cn.test.spring.StrutsHelloWorld"></bean>
-  
+    
+  	<bean id="custom" class="cn.test.spring.Custom">
+  		<property name="user" ref="user"/>
+  	</bean>
+  	
     <bean id="helloWorldService" class="cn.test.spring.HelloWorldService">
         <property name="helloWorld" ref="springHelloWorld"/>
     </bean>  
+    <aop:config>
+         <aop:aspect id="hello" ref="strutsHelloWorld">
+                <aop:pointcut id="addAllMethod" expression="execution(* cn.test.spring.*(..))" />
+                <aop:before method="sayHello" pointcut-ref="addAllMethod" />
+                <aop:after method="sayHello" pointcut-ref="addAllMethod" />
+          </aop:aspect>
+     </aop:config>
 </beans>

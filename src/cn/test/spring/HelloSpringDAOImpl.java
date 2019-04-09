@@ -72,7 +72,7 @@ public class HelloSpringDAOImpl implements HelloSpringDAO {
 			ps.setInt(1, custId);
 			User user = null;
 			ResultSet rs = ps.executeQuery();
-			if (rs.next()) {
+			if (rs.next()) {	
 				user = new User(
 					rs.getString("username"), 
 					rs.getString("sex"),

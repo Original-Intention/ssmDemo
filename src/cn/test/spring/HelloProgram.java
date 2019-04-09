@@ -26,5 +26,7 @@ public class HelloProgram {
 	    	
 	        User User1 = hellospring.findUserById(1);
 	        System.out.println(User1);
+	        
+	        Custom custom = (Custom) context.getBean("custom");
 	    }
 }
