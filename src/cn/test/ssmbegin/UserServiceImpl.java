@@ -7,8 +7,8 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import cn.test.mybatis.User;
 import cn.test.mybatis.UserMapper;
+import cn.test.mybatis.vo.User;
 
 @Service
 @Transactional

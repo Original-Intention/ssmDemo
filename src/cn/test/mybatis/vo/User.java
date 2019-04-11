@@ -1,13 +1,9 @@
-package cn.test.mybatis;
+package cn.test.mybatis.vo;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class User implements Serializable {
-    /**
-     * 
-     */
-    private static final long serialVersionUID = 1L;
+public class User{
+
     private Integer id;
     private String username;// 用户姓名
     private String sex;// 性别

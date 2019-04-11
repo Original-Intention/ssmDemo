@@ -1,4 +1,4 @@
-package cn.test.mybatis.custom;
+package cn.test.mybatis.vo;
 
 public class Custom {
 	

@@ -2,8 +2,6 @@ package cn.test.mybatis.vo;
 
 import java.util.Date;
 
-import cn.test.mybatis.custom.Custom;
-
 public class UserCustomVO {
     private Integer id;
     private String username;// ÓÃ»§ĞÕÃû
