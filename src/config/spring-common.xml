@@ -11,7 +11,7 @@
         http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 	   <!-- 指明配置文件存放位置 -->
-    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <context:property-placeholder location="classpath:config/jdbc.properties"/>
     
     <!-- 1. 数据源 : DriverManagerDataSource -->
     <bean id="dataSource"  class="org.springframework.jdbc.datasource.DriverManagerDataSource">
